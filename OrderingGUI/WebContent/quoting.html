@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Sign-up</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!--link rel="stylesheet" type="text/css" href="css/default.css"/-->
+<script type="text/javascript">
+function validate(obj)
+{
+if(obj.value=="")
+	{
+		switch(obj.name)
+		{
+		case "cname":
+			document.getElementById("namev").innerHTML="This field cannot be empty.";
+			break;
+		
+		case "ba":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "pa":
+			document.getElementById("statev").innerHTML="This field cannot be empty.";
+			break;
+		case "ea":
+			document.getElementById("countryv").innerHTML="This field cannot be empty.";
+			break;
+		case "ca":
+			document.getElementById("zipv").innerHTML="This field cannot be empty.";
+			break;
+		
+		}
+	}
+//document.getElementById("namev").innerHTML="This field cannot be empty.";
+
+}
+</script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <!-- new order css -->
+    <!--link href="css/default.css" rel="stylesheet"-->
+	<!--main page akash css-->
+	<link href="css/main-content.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- full calendar css-->
+    <link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+	<link href="assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <!-- easy pie chart-->
+    <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+	<link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <!-- Custom styles -->
+	<link rel="stylesheet" href="css/fullcalendar.css">
+	<link href="css/widgets.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+	<link href="css/xcharts.min.css" rel=" stylesheet">	
+	<link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    </head>
+    <body class="register-background">    
+        <form action="" class="register" method="">
+      
+                <h3>Quoting</h3>
+				<table>
+					<tr>
+							<td>				
+								Contract Type *`
+							</td>
+							<td>
+							<select id="modeltype" name="modeltype">
+							<option value="select">--Select Contract Type--</option>
+							<option>Right To Buy</option>
+							<option>Transactional</option>
+							</select><span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								Class Of Service *
+							</td>
+							<td>
+							<select id="classofservice" name="classofservice">
+							<option value="select">--Select Class Of Service--</option>
+							<option>Platinum</option>
+							<option>Gold</option>
+							<option>Silver</option>
+							<option>Bronze</option>
+							<option>Regular</option>
+							</select>
+							<span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								Discount Percentage *
+							</td>
+							<td>
+							<input type="text" name="discountpercentage" id="discountpercentage" />
+							<span id="streetv"></span>
+							</td>
+						</tr>
+					
+					
+						<tr>
+							<td>
+								Contract Start Date *
+							</td>
+							<td>
+							<input type="date" name="fromdate" id="fromdate"/>
+							<span id="streetv"></span>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td>
+								Contract End Date *
+							</td>
+							<td>
+							<input type="date" name="todate" id="todate" />
+							<span id="streetv"></span>
+							</td>
+						</tr>
+					
+            </table>    
+			<br>
+			<label class="obinfo"> * Mandatory fields</label>
+			<br><br>
+			
+            
+        </form>
+    </body>
+</html>
+
+
+
+
+
