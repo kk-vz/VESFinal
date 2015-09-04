@@ -148,7 +148,7 @@
                   </li>
 				    
                   <li class="sub-menu">
-                      <a data-toggle="tab" href="#cancelorder" onclick="change2()">
+                      <a data-toggle="tab" href="EditOrder.jsp" onclick="change2()">
                           <i class="icon_desktop"></i>
                           <span>Edit Order</span>
                           <span class="menu-arrow arrow_carrot-right"></span>

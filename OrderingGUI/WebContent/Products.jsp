@@ -33,7 +33,7 @@
 		
 		$.ajax({
 					type : "POST",
-					url : "CallPCatServiceCatalog",
+					url : "EditOrderServletGetContract",
 					data : dataString,
 					dataType : "json",
 
@@ -80,7 +80,7 @@
 
 							}
 							$("#PL").append(table_head + med + "</table>");
-
+						
 						} else {
 							
 							for (var i = 0; i < obj.Bundle_Details.length; i++) {
@@ -95,8 +95,9 @@
 										+ obj.Bundle_Details[i].Bundle_Cost.value;
 							}
 							$("#PL").append(table_head + med + "</table>");
-
+						//
 						}
+						$("#GenerateButton").append("<div><a class=\"btn btn-info btn-lg btn-block \" href=\"NewOrderServlet\" >Generate Contract</a></div>");
 
 					},
 
@@ -421,9 +422,7 @@
 		
 			<div id="PL">
 			</div>
-			
-			<div>
-			    <a class="btn btn-info btn-lg btn-block " href="NewOrderServlet" >Generate Contract</a>
+			<div id="GenerateButton">
 			</div>
 			
 		</div>

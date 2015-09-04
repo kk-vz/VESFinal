@@ -48,7 +48,7 @@ public class EmailAttachmentSendingServlet extends HttpServlet {
 			resultMessage = "There were an error: " + ex.getMessage();
 		} finally {
 			request.setAttribute("Message", resultMessage);
-			getServletContext().getRequestDispatcher("/Home.jsp").forward(
+			getServletContext().getRequestDispatcher("/home.jsp").forward(
 					request, response);
 		}
 	}

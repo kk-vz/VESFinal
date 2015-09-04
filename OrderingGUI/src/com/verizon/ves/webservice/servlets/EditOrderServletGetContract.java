@@ -1,6 +1,7 @@
 package com.verizon.ves.webservice.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,7 @@ public class EditOrderServletGetContract extends HttpServlet {
 //		String contractidJson = "{\"contractid\":\""+contractid+"\"}";
 //		String outputJson = new OrderManagementRestClient().callServicePOST(contractidJson, editOrderGetURL);
 		String email = request.getParameter("email");
+		System.out.println(email);
 		String profilePullURL = URL+email;
 		String profilePullJson = new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
@@ -56,7 +58,9 @@ public class EditOrderServletGetContract extends HttpServlet {
 		else
 		{
 			session.setAttribute("contractidvalidity", "valid");
-			
+			PrintWriter out = response.getWriter();
+		    out.println( contractJson );
+		    out.flush();
 			
 		}
 
