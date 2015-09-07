@@ -11,7 +11,14 @@ input
     - MOZ-border-radius: 5px; //For Mozilla, etc.
     border-radius: 5px; //CSS3 Feature
 }
+#set_product_page{
+	
+	height:0px;
 
+}
+#slider_background{
+	background:transparent;
+}
 #f1_container {
   perspective: 1000;
 }
@@ -132,8 +139,8 @@ input
 }
 #new_form
 {  
-	padding-top:50px;
-	padding-left:0px;
+	padding-top:0%;
+	padding-left:5%;
 	//float:left;
 	width:100%;
 }

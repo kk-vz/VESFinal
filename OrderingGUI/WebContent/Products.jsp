@@ -2,7 +2,7 @@
 <%@page import="com.verizon.ves.ui.CustomerDetails"%>
 <html lang="en">
   <head>
-  <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+  
   <script>
   function Send()
   {
@@ -114,15 +114,14 @@
 
   
   </script> 
+      
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
-	
 
-	
     <title>V Enterprise </title>
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -171,7 +170,7 @@
   </head>
 
   <body>
-  
+  <div id="set_product_page">
   
   	<!-- JSP bean code for getting the customer details from the home.jsp page -->
 
@@ -200,7 +199,6 @@
 <!-- Bean code ends here -->
 	
    <!-- container section start -->
-  <section id="container" class="">
      
      
      
@@ -245,27 +243,7 @@
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li class="eborder-top">
-                                <a href="#"><i class="icon_profile"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                            </li>
-                            <li>
-                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-                            </li>
-                            <li>
-                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-                            </li>
-                            <li>
-                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-                            </li>
+
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -428,14 +406,16 @@
 		</div>
 
 
+</div>
 
 
 
 
 
 
+	
 
-		<!-- container section start -->
+			<!-- container section start -->
   
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
@@ -445,7 +425,7 @@
     <script type="text/javascript" src="js/app.js"></script>
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <!--PCAT PRODUCT CATALOG-->
-    <!-- script src="js/PCATurl.js" /-->
+    <script src="js/PCATurl.js" />
     <script src="js/jquery.js"></script>
 	<script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -500,7 +480,6 @@
     <script src="js/chartjs-custom.js"></script>
     <!--custome script for all page-->
     <script src="js/scripts.js"></script>
-
 
   </body>
 </html>

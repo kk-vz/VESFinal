@@ -280,7 +280,7 @@ table tr th { color: #688a7e;}
 height: 90.5%;
 position: fixed;
 background:  rgba(173, 224, 106, 0.39); 
- margin-top: 65px;
+ margin-top: 0%;
 border: 1px;
 border-radius: 5px; 
 
@@ -1068,7 +1068,7 @@ div[data-role="editor-toolbar"] {
 }
 .dark-bg {
   color: #fff;
-   
+  position: relative;
     background-color:  rgba(173, 224, 106, 0.48);
 }
 }

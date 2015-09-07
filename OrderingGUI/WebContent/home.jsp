@@ -157,7 +157,7 @@
                   </li>
                  
                   <li>                     
-                      <a data-toggle="tab" href="#orderstatus" onclick="change3()">
+                      <a data-toggle="tab" onclick="change3()">
                           <i class="icon_piechart"></i>
                           <span>Order Status</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
@@ -389,20 +389,14 @@
 										</tr>
 									</table>
 									<div>
-									<br> <label class="obinfo"> * Mandatory fields</label> 
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="btn btn-success" type="submit" "><strong>Next
-											&raquo;</strong></button>
-									</div>
+																		</div>
 
 
 
 
 									<br>
 
-								</form>
-								<!--form action="NewOrderServlet" class="register" method="post">
-
+							
 									<h3>Quoting</h3>
 									<table>
 										<tr>
@@ -457,8 +451,9 @@
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<button class="btn btn-success" type="submit" "><strong>Next
 											&raquo;</strong></button>
+
 									</div>
-								</form-->
+								</form>
 
 
 							</div>
@@ -562,9 +557,9 @@
   }
     function change3()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
-   
+//   document.getElementById("framework").innerHTML="";
+//   document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+   location.href="chart-chartjs.jsp";
   }
   
   
