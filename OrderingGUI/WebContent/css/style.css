@@ -101,8 +101,8 @@ table tr th { color: #688a7e;}
         max-width: 350px;
 	background: #d5d7de;  
 	margin-bottom: 40px;
-	margin-top: 150px;
-	margin-left: 250px;
+	margin-top: 20%;
+	margin-left: 55%;
 	
 		
 }
@@ -4970,7 +4970,7 @@ span.customSelect.changed {
 #Frame{
 	padding-top: 10px;
 	height:100%;
-	width: 1300px;
+	width: 100%;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
 }

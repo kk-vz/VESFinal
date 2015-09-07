@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.verizon.ves.dao.EnterpriseOrderDAO;
 import com.verizon.ves.restclient.OrderManagementRestClient;
 import com.verizon.ves.ui.EnterpriseOrder;
+import com.verizon.ves.ui.ProfilePull;
 
 
 @WebServlet("/EditOrderServletEditContract")
@@ -25,7 +26,7 @@ public class EditOrderServletEditContract extends HttpServlet {
     }
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session=request.getSession();
 		String change = request.getParameter("change");
@@ -41,10 +42,13 @@ public class EditOrderServletEditContract extends HttpServlet {
 			// send email to customer
 			session.setAttribute("ordering", "success");
 			EnterpriseOrder enterpriseOrder=new Gson().fromJson(enterpriseJson, EnterpriseOrder.class);
+			session.setAttribute("enterpriseOrder", enterpriseOrder);
+			System.out.println("Before redirect:  "+session.getAttribute("profile"));
+		//	ProfilePull profile = (ProfilePull) session.getAttribute("profile");
 			
-			boolean status = new EnterpriseOrderDAO().EditOrder( enterpriseOrder.getOrderid(), enterpriseOrder.getContractid(), enterpriseOrder.getCustomerid());  
+		//	boolean status = new EnterpriseOrderDAO().EditOrder( enterpriseOrder.getOrderid(), enterpriseOrder.getContractid(), enterpriseOrder.getCustomerid());  
 			
-			
+			response.sendRedirect("ordersummaryEdit.jsp");
 		}
 	}
 

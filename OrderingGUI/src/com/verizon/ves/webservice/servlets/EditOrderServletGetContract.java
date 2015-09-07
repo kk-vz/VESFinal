@@ -14,11 +14,12 @@ import com.google.gson.Gson;
 import com.verizon.ves.dao.EnterpriseOrderDAO;
 import com.verizon.ves.restclient.OrderManagementRestClient;
 import com.verizon.ves.ui.ContractDetails;
+import com.verizon.ves.ui.ContractHistory;
 import com.verizon.ves.ui.EnterpriseOrder;
 import com.verizon.ves.ui.ProfilePull;
 
 
-@WebServlet("/EditOrderServlet")
+@WebServlet("/EditOrderServletGetContract")
 public class EditOrderServletGetContract extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 //	private static final String editOrderGetURL = "http://192.168.1.23:8080/OMTest/rest/profilepull/email";
@@ -38,16 +39,17 @@ public class EditOrderServletGetContract extends HttpServlet {
 //		String contractid = request.getParameter("contractid");
 //		String contractidJson = "{\"contractid\":\""+contractid+"\"}";
 //		String outputJson = new OrderManagementRestClient().callServicePOST(contractidJson, editOrderGetURL);
-		String email = request.getParameter("email");
+		String email = (String) session.getAttribute("email");
 		System.out.println(email);
 		String profilePullURL = URL+email;
 		String profilePullJson = new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
 		System.out.println(profilePullJson);
 		ProfilePull profile = new Gson().fromJson(profilePullJson, ProfilePull.class);
-		ContractDetails[] contractdetails = profile.getContractdetails();
-		String contractJson = new Gson().toJson(contractdetails);
-		System.out.println(contractJson);
+		session.setAttribute("profile", profile);
+		ContractHistory[] contractdetails = profile.getContractHistory();
+		String contractJson ="{\"contractdetails\":"+ new Gson().toJson(contractdetails) +"}";
+		System.out.println("Contract JSON: "+contractJson);
 
 		if(profilePullJson.equals("null"))
 		{

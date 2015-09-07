@@ -33,7 +33,7 @@
 		
 		$.ajax({
 					type : "POST",
-					url : "EditOrderServletGetContract",
+					url : "CallPCatServiceCatalog",
 					data : dataString,
 					dataType : "json",
 

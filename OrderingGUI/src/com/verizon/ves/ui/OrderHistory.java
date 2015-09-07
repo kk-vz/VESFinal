@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class OrderHistory {
 	
 	String orderid;
+	String dateofbooking;
 	String dateoforder;
 	String duedate;
 	String orderstatus;
@@ -17,15 +18,36 @@ public class OrderHistory {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public OrderHistory(String orderid, String dateoforder, String duedate,
-			String orderstatus, Services[] services) {
+
+	public OrderHistory(String orderid, String dateofbooking, String dateoforder, String duedate, String orderstatus,
+			Services[] services, Products[] products) {
 		super();
 		this.orderid = orderid;
+		this.dateofbooking = dateofbooking;//sysdate
 		this.dateoforder = dateoforder;
 		this.duedate = duedate;
 		this.orderstatus = orderstatus;
 		this.services = services;
+		this.products = products;
 	}
+
+	
+	public String getDateofbooking() {
+		return dateofbooking;
+	}
+
+	public void setDateofbooking(String dateofbooking) {
+		this.dateofbooking = dateofbooking;
+	}
+
+	public Products[] getProducts() {
+		return products;
+	}
+
+	public void setProducts(Products[] products) {
+		this.products = products;
+	}
+
 	public String getOrderid() {
 		return orderid;
 	}

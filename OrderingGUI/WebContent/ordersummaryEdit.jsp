@@ -60,114 +60,36 @@
     <![endif]-->
     
     
+        <script type="text/javascript" src="jspdf/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jspdf/jspdf.js"></script>
+<script type="text/javascript" src="jspdf/jspdf.plugin.standard_fonts_metrics.js"></script> 
+<script type="text/javascript" src="jspdf/jspdf.plugin.split_text_to_size.js"></script>               
+<script type="text/javascript" src="jspdf/jspdf.plugin.from_html.js"></script>
+<script type="text/javascript" src="jspdf/FileSaver.js"></script>
  <script>
-     function alert1() {
-    		
-    		<%
-    		   String email = request.getParameter( "email" );
-    		   session.setAttribute( "email", email );
-    		%>
-    		
-    		dataString = "email="+document.getElementById("email").value;
-    		
-    		$.ajax({
-    					type : "POST",
-    					url : "EditOrderServletGetContract",
-    					data : dataString,
-    					dataType : "json",
+     function demoFromHTML() {
+         var doc = new jsPDF('p', 'in', 'letter');
+         var source = $('#table').first();
+         var specialElementHandlers = {
+             '#bypassme': function(element, renderer) {
+                 return true;
+             }
+         };
 
-    					//if received a response from the server
-    					success : function(data, textStatus, jqXHR) {
-    				//			alert("got the json");
-    						$("#PL").html("");
-
-    				//		alert(data);
-    						str1 = JSON.stringify(data);
-    						var obj = JSON.parse(str1);
-    				//		alert(str1);
-    				//		alert(obj.contractdetails[0].modeltype);
-
-    	 /*
-    	contractdetails": [
-    	        {
-    	            "contractid": "112345",
-    	            "modeltype": "transactional|rtb",
-    	            "classofservice": "platinum|gold|silver|bronze|normal",
-    	            "fromdate": "18-aug-2015",
-    	            "todate": "18-aug-2016",
-    	            "current": 40,
-    	            "max": 100,
-    	            "discountpercentage": 10
-    	        }
-    	    ]
-    	 */
-    						var radio = "<input type=\"radio\" name=\"contract\" id=\"contract\" value=\"";
-    						var radio_next = "\"/>";
-    						var table_head = "<table cellpadding=\"15px\" class=\"product-table\" name=\"contracttable\" id=\"contracttable\">" +
-    										 "<tr>" +
-    										 "<td>Select</td>" +
-    										 "<td>Contract ID</td>" +
-    										 "<td>Model Type</td>" +
-    										 "<td>Class of Service</td>" +
-    										 "<td>From </td>" +
-    										 "<td>To </td>" +
-    										 "<td>Current Qty</td>" +
-    										 "<td>Maximum Qty</td>" +
-    										 "<td>Discount Percentage</td>" 
-    										 
-    										 "</tr>";
-
-    						med = "";
-    						
-    							for (var i = 0; i < obj.contractdetails.length; i++) {
-    							//	alert(obj.contractdetails[i].current);
-    								med = med
-    										+ "<tr><td>"
-    										+ radio
-    										+ obj.contractdetails[i].contractid
-    										+ radio_next
-    										+ "</td><td>"
-    										+ obj.contractdetails[i].contractid
-    										+ "</td><td>"
-    										+ obj.contractdetails[i].modeltype
-    										+ "</td><td>"
-    										+ obj.contractdetails[i].classofservice
-    										+ "</td><td>"
-    										+ obj.contractdetails[i].fromdate
-    										+ "</td><td>"
-    										+ obj.contractdetails[i].todate
-    										+"</td><td>"
-    										+ obj.contractdetails[i].current
-    										+"</td><td>"
-    										+ obj.contractdetails[i].max
-    										+"</td><td>"
-    										+ obj.contractdetails[i].discountpercentage
-    										+ "</td></tr>"
-    							}
-
-
-    							
-    							$("#PL").append(table_head + med + "</table>");
-    						
-    						 
-    						//
-    						$("#Change").append(" Add/Increase Lines: <input type=\"number\" id=\"change\" name=\"change\" /> ");
-    						
-    						$("#EditButton").append("<div><a class=\"btn btn-info btn-lg btn-block \" href=\"EditOrderServletEditContract\" >Edit Contract</a></div>");
-    		
-    					},
-
-    					//If there was no response from the server
-    					error : function(jqXHR, textStatus, errorThrown) {
-    						console.log("Something really bad happened " + textStatus);
-    						$("#PL").html(jqXHR.responseText);
-    					}
-
-    				});
-    			
-
-    	}
-    	 
+         doc.fromHTML(
+            $('#table').get(0), // [Refer Exact code tutorial][2]HTML string or DOM elem ref.
+             0.5,    // x coord
+             0.5,    // y coord
+             {
+                 'width': 7.5, // max width of content on PDF
+                 'elementHandlers': specialElementHandlers
+             });
+        var file = <%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getOrderid() %>;
+		var fileName = file + ".pdf";
+		alert(fileName);
+         doc.save(fileName);
+         location.href="EmailAttachmentSendingServlet";
+    }
 </script>
     
   </head>
@@ -287,25 +209,80 @@
       </aside>
 	 
 	<div id="framework1" >
-	Email ID:
-	<input type="text" name="email" id="email" />
-	<input type="button" id="editbutton" name="editbutton" value="Search"  onclick="alert1()" />
-	<div id="displaySection">
-		<fieldset>
+	<h1>Order Summary</h1>
+	
+	<div id="table">
+		<table id="order-table" cellpadding="7px">
+		
+		<tr>
+		<td>Company Name:</td>
+		<td><%= ((ProfilePull)session.getAttribute("profile")).getCustomerdetails().getFname() %></td>
+		</tr>
+		
+		<tr>
+		<td>Customer ID</td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getCustomerid() %></td>
+		</tr>
+		
+		<tr>
+		<td>Connection Address:</td>
+		<td><%= ((ProfilePull)session.getAttribute("profile")).getCustomerdetails().getConnectionaddress() %></td>
+		</tr>
+		
+		
+		<tr>
+		<td>Billing Address:</td>
+		<td><%= ((ProfilePull)session.getAttribute("profile")).getCustomerdetails().getBillingaddress() %></td>
+		</tr>
+		
+		<tr>
+		<td>E-Mail Id:</td>
+		<td><%= ((ProfilePull)session.getAttribute("profile")).getCustomerdetails().getEmail() %></td>
+		</tr>
+		
+		
+		<tr>
+		<td>Contact No.</td>
+		<td><%= ((ProfilePull)session.getAttribute("profile")).getCustomerdetails().getContactnumber() %></td>
+		</tr>
+		
+		<tr>
+		<td>Contract Modification Details:</td>
+		</tr>
+		
+		<tr>
+		<td>Contract ID</td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getContractid() %></td>
+		</tr>
 
-			<div id="PL"></div>
-			<div id="Change" >
-			
-			</div>
-			<div id="EditButton"></div>
-		</fieldset>
+		<tr>
+		<td>Order ID</td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getOrderid() %></td>
+		</tr>
+
+		</table>
 	</div>
-</div>
+		
+		<table id="print-button">
+		<tr>
+		<td>
+		<!-- input type="button" class="btn btn-success" value ="Print"/> -->
+		<a class="btn btn-success" href="javascript:demoFromHTML()">Generate Contract</a> 
+		
+		</td>
+		</tr>
+		</table>
+		
+		
+	</div>
 
+	 
+	
+	 
 	 
 	  
   <!-- container section start -->
- 
+  <
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <!-- javascripts -->

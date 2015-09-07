@@ -7,7 +7,7 @@ public class ProfilePull {
 	String lineofbusiness;
 	CustomerDetails customerdetails;
 	OrderHistory[] orderhistory;
-	ContractDetails[] contractdetails;
+	ContractHistory[] contractdetails;
 	
 	
 	
@@ -16,12 +16,12 @@ public class ProfilePull {
 		// TODO Auto-generated constructor stub
 	}
 	public ProfilePull(String lineofbusiness, CustomerDetails customerdetails,
-			OrderHistory[] orderhistory, ContractDetails[] contractdetails) {
+			OrderHistory[] orderhistory, ContractHistory[] contracthistory) {
 		super();
 		this.lineofbusiness = "ves";
 		this.customerdetails = customerdetails;
 		this.orderhistory = orderhistory;
-		this.contractdetails = contractdetails;
+		this.contractdetails = contracthistory;
 	}
 	public String getLineofbusiness() {
 		return lineofbusiness;
@@ -41,17 +41,17 @@ public class ProfilePull {
 	public void setOrderHistory(OrderHistory[] orderhistory) {
 		this.orderhistory = orderhistory;
 	}
-	public ContractDetails[] getContractdetails() {
+	public ContractHistory[] getContractHistory() {
 		return contractdetails;
 	}
-	public void setContractdetails(ContractDetails[] contractdetails) {
-		this.contractdetails = contractdetails;
+	public void setContractHistory(ContractHistory[] contracthistory) {
+		this.contractdetails = contracthistory;
 	}
 	@Override
 	public String toString() {
 		return "ProfilePull [lineofbusiness=" + lineofbusiness
 				+ ", customerdetails=" + customerdetails + ", orderhistory="
-				+ Arrays.toString(orderhistory) + ", contractdetails="
+				+ Arrays.toString(orderhistory) + ", contracthistory="
 				+ Arrays.toString(contractdetails) + "]";
 	}
 	
