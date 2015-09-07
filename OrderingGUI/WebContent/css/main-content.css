@@ -137,6 +137,9 @@ input
 {
  display:none;	
 }
+#order_status{
+	margin-left:70%;
+}
 #new_form
 {  
 	padding-top:0%;
