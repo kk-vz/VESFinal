@@ -90,7 +90,7 @@ function Send(){
 										 "<td>Product ID</td>" +
 										 "<td>Product Name</td>" +
 										 "<td>Product Description</td>" +
-										 "<td>Cost</td>" +
+										 "<td>Cost($)</td>" +
 										 "</tr>";
 
 						med = "";
@@ -313,17 +313,17 @@ function Send(){
 			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu">
-					<li><a data-toggle="tab" class="" href="#" onclick=""> <i
+					<li><a data-toggle="tab" class="" href="#" onclick="change1()"> <i
 							class="icon_house_alt"></i> <span>New Order</span> <span
 							class="menu-arrow arrow_carrot-right"></span>
 					</a></li>
 
-					<li class="sub-menu"><a data-toggle="tab" href="#" onclick="">
+					<li class="sub-menu"><a data-toggle="tab" href="#" onclick="change2()">
 							<i class="icon_desktop"></i> <span>Edit Order</span> <span
 							class="menu-arrow arrow_carrot-right"></span>
 					</a></li>
 
-					<li><a data-toggle="tab" href="#" onclick=""> <i
+					<li><a data-toggle="tab" href="#" onclick="change3()"> <i
 							class="icon_piechart"></i> <span>Order Status</span> <span
 							class="menu-arrow arrow_carrot-right"></span>
 					</a></li>
@@ -457,7 +457,29 @@ function Send(){
 			
 		</div>
 
+<script>
+function change1()
+{
+// document.getElementById("framework").innerHTML="";
+// document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+ location.href="NewOrder.jsp";
+ 
+}
+ function change2()
+{
+//  document.getElementById("framework").innerHTML="";
+// document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+ location.href="EditOrder.jsp";
+ 
+}
+  function change3()
+{
+// document.getElementById("framework").innerHTML="";
+// document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+ location.href="chart-chartjs.jsp";
+}
 
+</script>
 
 
 

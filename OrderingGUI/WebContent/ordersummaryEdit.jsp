@@ -352,23 +352,25 @@
   
   function change1()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-   
+  // document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+   location.href="NewOrder.jsp";
    
   }
    function change2()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+  //  document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+   location.href="EditOrder.jsp";
    
   }
     function change3()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
-   
+  // document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+   location.href="chart-chartjs.jsp";
   }
+
   
   
       

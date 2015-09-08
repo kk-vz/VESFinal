@@ -279,7 +279,7 @@ table tr th { color: #688a7e;}
 width: 180px;
 height: 100%;
 position : fixed;
-background:  rgba(173, 224, 106, 0.39); 
+background:  rgb(234, 24, 24); 
 margin-top: 0%;
 border: 1px;
 border-radius: 5px; 
@@ -386,7 +386,7 @@ ul.sidebar-menu li a{
     top: 2px;
 }*/
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #8CD06C;
+    background: #F9DEDE;
     color: black;
     display: block;
 	font-weight: bolder;
@@ -1069,7 +1069,7 @@ div[data-role="editor-toolbar"] {
 .dark-bg {
   color: #fff;
   position: relative;
-    background-color:  rgba(173, 224, 106, 0.48);
+    background-color:  rgb(234, 24, 24);
 }
 }
 .facebook-bg {
@@ -3410,7 +3410,7 @@ ul.inbox-pagination li {
     background: #688a7e !important;
 }
 .profile-widget-warning{
-    background: #ffcc00 !important;
+    background: #F9DEDE !important;
 }
 .profile-widget-danger{
     background: #00a0df !important;

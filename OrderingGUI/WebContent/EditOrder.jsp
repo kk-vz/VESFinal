@@ -295,12 +295,12 @@
 								<input type="button" class="btn btn-success" name="editbutton" value="Search"  onclick="alert1()" />		
 						</div>
 							
-			<div  id="shift_left1">
+			<div  id="shift_left">
 				<div align="center" id="PL"></div>					
 					
 			</div>
 			
-			<div id="shift_bottom">
+			<div id="shift_bottom1">
 										<div id="Change" ></div>
 										<div id="EditButton"></div>
 									</div>
@@ -378,23 +378,25 @@
   
   function change1()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-   
+  // document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+   location.href="NewOrder.jsp";
    
   }
    function change2()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+  //  document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+   location.href="EditOrder.jsp";
    
   }
     function change3()
   {
-   document.getElementById("framework").innerHTML="";
-   document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
-   
+  // document.getElementById("framework").innerHTML="";
+  // document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+   location.href="chart-chartjs.jsp";
   }
+
   
   
       

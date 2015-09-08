@@ -319,6 +319,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon_lock_alt:before {
 	content: "\7e";
+	color:  #FF0707;
 }
 .icon_lock-open_alt:before {
 	content: "\e000";

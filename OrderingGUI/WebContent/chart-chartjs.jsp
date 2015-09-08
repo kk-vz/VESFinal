@@ -32,6 +32,27 @@
 	function visibility_div(){
 	document.getElementById("details").style.visibility="visible";
 	}
+	function change1()
+	{
+	// document.getElementById("framework").innerHTML="";
+	// document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+	 location.href="NewOrder.jsp";
+	 
+	}
+	 function change2()
+	{
+	//  document.getElementById("framework").innerHTML="";
+	// document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+	 location.href="EditOrder.jsp";
+	 
+	}
+	  function change3()
+	{
+	// document.getElementById("framework").innerHTML="";
+	// document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+	 location.href="chart-chartjs.jsp";
+	}
+
 	</script>
 	
   </head>
@@ -152,7 +173,7 @@
 		<div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="icon_piechart"></i>ORDER STATUS</h3>
-					
+					<% session.setAttribute("querying", "failed"); %>
 				</div>
 			</div>
             <div>
@@ -160,7 +181,7 @@
 					<pre>
 							Order ID : <input type="text" id="order"><input type="submit" id="orderid" >	
 							
-							<input type="button" class="btn btn-success" id="searchbutton" value="Search" onclick="visibility_div()">
+							<!--  <input type="button" class="btn btn-success" id="searchbutton" value="Search" onclick="visibility_div()"> -->
 							<%
 							if(((String)session.getAttribute("querying")).equals("success"))
 							{
