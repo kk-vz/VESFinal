@@ -153,7 +153,7 @@
     						//
     						$("#Change").append(" Add/Increase Lines: <input type=\"number\" id=\"change\" name=\"change\" /> ");
     						
-    						$("#EditButton").append("<div><a class=\"btn btn-info btn-lg btn-block \" href=\"EditOrderServletEditContract\" >Edit Contract</a></div>");
+    						$("#EditButton").append("<div><a class=\"btn btn-success \" href=\"EditOrderServletEditContract\" >Edit Contract</a></div>");
     		
     					},
 
@@ -286,22 +286,25 @@
 		 
       </aside>
 	 
-	<div id="framework1" >
-	Email ID:
-	<input type="text" name="email" id="email" />
-	<input type="button" id="editbutton" name="editbutton" value="Search"  onclick="alert1()" />
-	<div id="displaySection">
-		<fieldset>
-
-			<div id="PL"></div>
-			<div id="Change" >
+	<div id="frame2">
+	
 			
+					<div id="shift_left">
+							
+								Email ID: <input type="text" name="email" id="email" />
+								<input type="button" class="btn btn-success" name="editbutton" value="Search"  onclick="alert1()" />		
+						</div>
+							
+			<div  id="shift_left1">
+				<div align="center" id="PL"></div>					
+					
 			</div>
-			<div id="EditButton"></div>
-		</fieldset>
-	</div>
+			
+			<div id="shift_bottom">
+										<div id="Change" ></div>
+										<div id="EditButton"></div>
+									</div>
 </div>
-
 	 
 	  
   <!-- container section start -->

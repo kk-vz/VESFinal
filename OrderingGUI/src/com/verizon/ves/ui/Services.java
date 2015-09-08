@@ -38,8 +38,8 @@ public class Services {
 	}
 	@Override
 	public String toString() {
-		return "Services [servicecode=" + servicecode + ", servicename="
-				+ servicename + ", quantity=" + quantity + "]";
+		return "\nService Code:" + servicecode + "\nService Name:"
+				+ servicename + "\nQuantity:" + quantity +"\n";
 	}
 	
 	

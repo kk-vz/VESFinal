@@ -41,6 +41,8 @@ public class NextButtonServlet extends HttpServlet implements Servlet {
 			CustomerDetails customerdetails = (CustomerDetails) session.getAttribute("customerdetails");
 			customerdetails.setConnectionaddress(connectionaddress);
 			session.setAttribute("customerdetails", customerdetails);
+			double discount = Long.parseLong(request.getParameter("discountpercentage"));
+			session.setAttribute("discount", discount);
 			response.sendRedirect("Products.jsp");
 	}
 

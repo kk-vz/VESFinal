@@ -158,7 +158,9 @@
             <div>
 				<form action="OrderStatusServlet" method="post">
 					<pre>
-							Order ID : <input type="text" id="order"><input type="submit" id="orderid" >		<input type="button" class="btn btn-success" id="searchbutton"value="Search" onclick="visibility_div()">
+							Order ID : <input type="text" id="order"><input type="submit" id="orderid" >	
+							
+							<input type="button" class="btn btn-success" id="searchbutton" value="Search" onclick="visibility_div()">
 							<%
 							if(((String)session.getAttribute("querying")).equals("success"))
 							{

@@ -261,7 +261,7 @@
 		
 		<tr>
 		<td>Services:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getServices()[0] %></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getServices()[0].toString() %></td>
 		</tr>
 		
 		
@@ -283,13 +283,18 @@
 		
 		<tr>
 		<td>Contract Period:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getFromdate() + "to" + ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getTodate() %></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getFromdate() + " - " + ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getTodate() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Discount Percentage :</td>
 		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getDiscountpercentage() %></td>
+		</tr>
+		
+		<tr>
+		<td>Quote :</td>
+		<td><%= session.getAttribute("quote") %></td>
 		</tr>
 		</table>
 	</div>

@@ -31,7 +31,7 @@ public class Quantity {
 	}
 	@Override
 	public String toString() {
-		return "Quantity [max=" + max + ", current=" + current + "]";
+		return "\nMaximum: " + max + ", Currently Provisioned:" + current ;
 	}
 	
 	

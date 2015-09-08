@@ -185,6 +185,18 @@ public class NewOrderServlet extends HttpServlet {
 //			ordering1.getOrderdetails().setOrderid("3");
 			
 			session.setAttribute("ordering", ordering1);
+			/*System.out.println(session.getAttribute("cost"));
+			System.out.println(session.getAttribute("quantity"));
+			*/
+			
+			
+	        double cost=Long.parseLong((String)request.getParameter("costperitem"));
+			double quantity=Long.parseLong((String)request.getParameter("qty"));
+			double discount=(double) session.getAttribute("discount");
+			double quote=(1-(discount/100))*cost*quantity;
+			
+			System.out.println("quote:"+quote+" discount:"+discount);
+			session.setAttribute("quote",quote); 
 			response.sendRedirect("ordersummary.jsp");
 			
 			

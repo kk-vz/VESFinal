@@ -176,6 +176,7 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  font-size:20px;
 }
 @media print {
   * {
@@ -233,6 +234,7 @@ table {
   .table td,
   .table th {
     background-color: #fff !important;
+    
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -2010,6 +2012,7 @@ fieldset[disabled] .btn-danger.active {
 }
 .btn-success {
   color: #ffffff;
+  width:auto;
   background-color: #4cd964;
   border-color: #4cd964;
 }
@@ -3924,7 +3927,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #2b2b2b;
 }
 .navbar-inverse {
-  background-color: rgba(0, 0, 0, 0.42);
+  background-color: rgba(241, 10, 10, 0.67);
     border-color: #080808;
 }
 
