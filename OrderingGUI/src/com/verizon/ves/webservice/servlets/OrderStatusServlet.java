@@ -46,10 +46,11 @@ public class OrderStatusServlet extends HttpServlet {
 		{
 			// set session attribute for order status doughnut
 			session.setAttribute("querying", "success");
-			Gson gson = new Gson();
-			OrderHistory orderhistory = gson.fromJson(outputJson, OrderHistory.class);
-			String orderstatus = orderhistory.getOrderstatus();
-			session.setAttribute("orderstatus", orderstatus);
+			//Gson gson = new Gson();
+			//OrderHistory orderhistory = gson.fromJson(outputJson, OrderHistory.class);
+			//String orderstatus = orderhistory.getOrderstatus();
+			//session.setAttribute("orderstatus", orderstatus);
+			session.setAttribute("orderstatus", 2);
 			response.sendRedirect("chart-chartjs.jsp");
 		}
 

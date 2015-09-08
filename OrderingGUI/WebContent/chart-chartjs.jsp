@@ -189,6 +189,8 @@
 								
 							%>
 								<input type="text" id="search" style="visibility:hidden" value=<%= orderstatus %> />
+								
+								<script> visibility_div(); </script>
 							<%
 							}
 			 				%>
