@@ -188,9 +188,10 @@
 							<h2>Customer Information</h2>
 							<br>
 							<p>
-								<label for="cust_name">Customer's Email:</label> <input
-									id="email" type="text" name="email" />&nbsp;&nbsp;&nbsp; <input
-									class="btn btn-success" type="submit" value="Validate" />
+								<p>
+								<b><p style="font-size:20px" for="cust_name"><strong>Customer's Email</strong> </p></b> <input id="email" type="text" name="email">&nbsp;&nbsp;&nbsp; <input class="btn btn-success" type="submit" value="Validate">
+							</p> 
+								
 							</p>
 						</fieldset>
 					</form>
@@ -201,7 +202,7 @@
 								<form action="" class="register" method="post">
 
 
-									<h3>Billing Details</h3>
+									<h3><strong>Billing Details</strong></h3>
 
 
 									<table>
@@ -337,7 +338,7 @@
 							<div id="ajaxResponse">
 								<form action="NextButtonServlet" class="register" method="post">
 
-									<h3>Provisioning Address</h3>
+									<h3><strong>Provisioning Address</strong></h3>
 									<table>
 										<tr>
 											<td>Street *</td>
@@ -410,7 +411,7 @@
 									<br>
 
 							
-									<h3>Quoting</h3>
+									<h3><strong>Quoting</strong></h3>
 									<table>
 										<tr>
 											<td>Contract Type *</td>
