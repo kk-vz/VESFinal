@@ -18,7 +18,7 @@ import com.verizon.ves.ui.OrderHistory;
 @WebServlet("/OrderStatusServlet")
 public class OrderStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String orderStatusURL = "http://192.168.1.23:8080/OMTest/rest/profilepull/email";
+	private static final String URL = "http://localhost:8080/OrderManagement/rest/om/profilePull/orderid/";
    
    
     public OrderStatusServlet() {
@@ -31,8 +31,8 @@ public class OrderStatusServlet extends HttpServlet {
 		String orderid = request.getParameter("orderid");
 		HttpSession session=request.getSession();
 		
-		String orderidJson = "{\"orderid\":\""+orderid+"\"}";
-		String outputJson = new OrderManagementRestClient().callServicePOST(orderidJson, orderStatusURL);
+		String orderStatusURL = URL+orderid;
+		String outputJson = new OrderManagementRestClient().callServiceGET(orderStatusURL);
 		
 		
 		System.out.println(outputJson);

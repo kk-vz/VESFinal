@@ -22,9 +22,8 @@ import com.verizon.ves.ui.ProfilePull;
 @WebServlet("/EditOrderServletGetContract")
 public class EditOrderServletGetContract extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private static final String editOrderGetURL = "http://192.168.1.23:8080/OMTest/rest/profilepull/email";
-//	private static final String editOrderPutURL = "http://192.168.1.23:8080/OMTest/rest/profilepull/email";
-	private static final String URL = "http://192.168.1.19:8080/OrderManagement/rest/om/profilePull/email/";  
+
+	private static final String URL = "http://localhost:8080/OrderManagement/rest/om/profilePull/email/";  
 
     public EditOrderServletGetContract() {
         super();

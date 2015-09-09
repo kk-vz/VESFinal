@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println(customerdetails);
 			customerdetails.setCustomertype("new");
 			session.setAttribute("customerdetails", customerdetails);
+			session.setAttribute("customertype", "new");
 			response.sendRedirect("home.jsp");
 		}
 		else if(status == 1)

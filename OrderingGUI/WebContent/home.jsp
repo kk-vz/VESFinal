@@ -3,8 +3,11 @@
 <html lang="en">
   <head>
   <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
-  
-  
+  <script>
+	function CheckNewUser(){
+		location.href = "CheckNewUserServlet";
+	}
+  </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -165,26 +168,25 @@
 		<!--footer id="myfooter" class="header dark-bg"></footer-->
 		<!--NEW ORDER-->
 		<div id="neworder" class="onetime">
-
+		<form  action="NextButtonServlet" method="post">
 			<div id="left">
 				<div id="new_form">
-					<form id="myAjaxRequestForm" action="CheckNewUserServlet"
-						method="post">
+					
 						<fieldset>
 							<h2>Customer Information</h2>
 							<br>
 							<p>
-								<strong style="font-size:20px">Customer's Email:</strong> <input
-									id="email" type="text" name="email" />&nbsp;&nbsp;&nbsp; <input
-									class="btn btn-success" type="submit" value="Validate" />
+								<strong style="font-size:20px">Customer's Email:</strong> 
+								<input 	id="emailid" type="text" name="emailid" />&nbsp;&nbsp;&nbsp; 
+								<input class="btn btn-success" type="button" onclick="CheckNewUser();" value="Validate" />
 							</p>
 						</fieldset>
-					</form>
+					
 					<div id="anotherSection">
 						<fieldset>
 
 							<div id="ajaxResponse">
-								<form action="" class="register" method="post">
+							
 
 
 									<h3>Billing Details</h3>
@@ -302,7 +304,7 @@
                 </table>									<br>
 
 									<!-- <label class="obinfo"> * Mandatory fields</label>-->
-								</form>
+								
 
 							</div>
 
@@ -321,7 +323,7 @@
 						<fieldset>
 
 							<div id="ajaxResponse">
-								<form action="NextButtonServlet" class="register" method="post">
+								
 
 									<h3>Provisioning Address</h3>
 									<table>
@@ -445,15 +447,9 @@
 
 
 									</table>
-									<div>
-									<br> <label class="obinfo"> * Mandatory fields</label> 
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="btn btn-success" type="submit" "><strong>Next
-											&raquo;</strong></button>
-
-									</div>
-								</form>
-
+									
+								
+							
 
 							</div>
 						</fieldset>
@@ -462,7 +458,15 @@
 
 				</div>
 			</div>
+			<div style="margin-left:60%">
+									<br> <label class="obinfo"> * Mandatory fields</label> 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<button class="btn btn-success" type="submit" "><strong>Next
+											&raquo;</strong></button>
 
+									</div>
+			</form>
+			</div>
 
 
 

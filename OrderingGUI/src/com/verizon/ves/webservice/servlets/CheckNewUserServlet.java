@@ -18,7 +18,7 @@ import com.verizon.ves.ui.ProfilePull;
 @WebServlet("/CheckNewUserServlet")
 public class CheckNewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String URL = "http://192.168.1.19:8080/OrderManagement/rest/om/profilePull/email/";  
+	private static final String URL = "http://localhost:8080/OrderManagement/rest/om/profilePull/email/";  
    
     public CheckNewUserServlet() {
         super();
@@ -26,11 +26,11 @@ public class CheckNewUserServlet extends HttpServlet {
     }
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		System.out.println("In CheckNewUserServlet...");
-		String email = request.getParameter("email");  //"lol@gmail.com";
+		String email = request.getParameter("emailid");  //"lol@gmail.com";
 		HttpSession session=request.getSession();
 		
 		System.out.println("email: "+email);

@@ -46,7 +46,7 @@ public class NextButtonServlet extends HttpServlet implements Servlet {
 			System.out.println(connectionaddress);
 			
 			String customertype =(String) session.getAttribute("customertype");
-			
+			System.out.println(customertype);
 		if (customertype.equals("new")) {
 			int customerid = 0;
 			String fname = request.getParameter("fname");

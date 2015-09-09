@@ -79,11 +79,11 @@ public class OrderManagementRestClient {
 				
 				responseJson.append(str);
 			}
-			JsonReader jsonReader = Json.createReader(new StringReader(new String(responseJson)));
-			JsonObject jsonObj = jsonReader.readObject();
-			jsonReader.close();
-			outputJson = jsonObj.toString();
-			//System.out.println(jsonObj.toString());
+//			JsonReader jsonReader = Json.createReader(new StringReader(new String(responseJson)));
+//			JsonObject jsonObj = jsonReader.readObject();
+//			jsonReader.close();
+   			outputJson = str; // jsonObj.toString();
+//			System.out.println(jsonObj.toString());
 		}
 
 	      return outputJson;
