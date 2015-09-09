@@ -213,9 +213,10 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                            	<% String image_source = "img/"+session.getAttribute("userName")+".jpg"; %>
+                                <img alt="" src=<%=image_source %>>
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username"><%= session.getAttribute("userName")%></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -380,7 +381,7 @@
   {
   // document.getElementById("framework").innerHTML="";
   // document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-   location.href="NewOrder.jsp";
+   location.href="home.jsp";
    
   }
    function change2()

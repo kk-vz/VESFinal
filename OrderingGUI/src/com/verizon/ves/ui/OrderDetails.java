@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class OrderDetails {
 	
-	String orderid;
+	int orderid;
 	String dateofbooking;
 	String duedate;
 	Services[] services;
@@ -17,7 +17,7 @@ public class OrderDetails {
 	}
 
 
-	public OrderDetails(String orderid,String dateofbooking, String duedate,
+	public OrderDetails(int orderid,String dateofbooking, String duedate,
 			Services[] services) {
 		super();
 		this.orderid = orderid;
@@ -27,12 +27,12 @@ public class OrderDetails {
 	}
 	
 	
-	public String getOrderid() {
+	public int getOrderid() {
 		return orderid;
 	}
 
 
-	public void setOrderid(String orderid) {
+	public void setOrderid(int orderid) {
 		this.orderid = orderid;
 	}
 

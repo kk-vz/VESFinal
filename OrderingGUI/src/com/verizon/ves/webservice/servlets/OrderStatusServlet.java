@@ -1,6 +1,7 @@
 package com.verizon.ves.webservice.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,12 +47,34 @@ public class OrderStatusServlet extends HttpServlet {
 		{
 			// set session attribute for order status doughnut
 			session.setAttribute("querying", "success");
-			//Gson gson = new Gson();
-			//OrderHistory orderhistory = gson.fromJson(outputJson, OrderHistory.class);
-			//String orderstatus = orderhistory.getOrderstatus();
+			Gson gson = new Gson();
+			OrderHistory orderhistory = gson.fromJson(outputJson, OrderHistory.class);
+			String orderstatus = "out provision";//orderhistory.getOrderstatus();
 			//session.setAttribute("orderstatus", orderstatus);
-			session.setAttribute("orderstatus", 2);
-			response.sendRedirect("chart-chartjs.jsp");
+			String status = "";
+			switch(orderstatus){
+			case "new":
+				status = "0";
+				session.setAttribute("status", "Order Placed Successfully"); break;
+			case "in provision":
+				status = "1";
+				session.setAttribute("status", "In provision"); break;
+			case "out provision":
+				status = "2";
+				session.setAttribute("status", "Out Provision"); break;
+			case "completed":
+				status = "3";
+				session.setAttribute("status", "Order Completed"); break;
+			case "cancelled":
+				status = "4";
+				session.setAttribute("status", "Order Cancelled"); break;	
+			}
+		    PrintWriter out = response.getWriter();
+		    out.println( status );
+		    out.flush();
+			
+//			session.setAttribute("orderstatus", 2);
+//			response.sendRedirect("chart-chartjs.jsp");
 		}
 
 	}

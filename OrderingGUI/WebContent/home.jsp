@@ -243,8 +243,8 @@
 							</td>
 							<td>
 							
-								<select id="bstate" name="bstate" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getState() %>'>
-										<option value="select">----select your state----</option>
+								<select id="bstate" name="bstate" >
+										<option value="select"><%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getState() %></option>
 										<option value="ALASKA">ALASKA</option>
 										<option value="ARIZONA">ARIZONA</option>
 										<option value="CALIFORNIA">CALIFORNIA</option>
@@ -278,13 +278,22 @@
 				
 					<tr>
 							<td>
+								Country *
+							</td>
+							<td>
+								<input type="text" class="long" name="bcountry" id="bcountry" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getCountry()%>'/>
+								<span id="streetv"></span>
+							</td>
+					</tr>
+				
+					<tr>
+							<td>
 								Zipcode *
 							</td>
 							<td>
 								<input type="text" class="long" name="bzipcode" id="bzipcode" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getZipcode() %>'/><span id="streetv"></span>
 							</td>
 					</tr>
-				
                 
                 
                 
@@ -333,7 +342,7 @@
 									<h3>Provisioning Address</h3>
 									<table>
 										<tr>
-											<td>Street *`</td>
+											<td>Street *</td>
 											<td><input type="text" class="long" name="cstreetname"
 												id="cstreetname" onblur="validate(this);" /><span id="streetv"></span>
 											</td>
@@ -380,6 +389,12 @@
 												<div id="response"></div>
 											</td>
 										</tr>
+										
+										<tr>
+											<td>Country *</td>
+											<td><input type="text" class="long" name="ccountry"	id="ccountry" onblur="validate(this);"	/>
+												<span id="streetv"></span></td>
+										</tr>
 
 										<tr>
 											<td>Zipcode *</td>
@@ -400,11 +415,11 @@
 									<h3>Quoting</h3>
 									<table>
 										<tr>
-											<td>Contract Type *`</td>
+											<td>Contract Type *</td>
 											<td><select id="modeltype" name="modeltype">
 													<option value="select">--Select Contract Type--</option>
-													<option>Right To Buy</option>
-													<option>Transactional</option>
+													<option value="rtb">Right To Buy</option>
+													<option value="transactional">Transactional</option>
 											</select><span id="streetv"></span></td>
 										</tr>
 
@@ -412,11 +427,11 @@
 											<td>Class Of Service *</td>
 											<td><select id="classofservice" name="classofservice">
 													<option value="select">--Select Class Of Service--</option>
-													<option>Platinum</option>
-													<option>Gold</option>
-													<option>Silver</option>
-													<option>Bronze</option>
-													<option>Regular</option>
+													<option value="platinum">Platinum</option>
+													<option value="gold">Gold</option>
+													<option value="silver">Silver</option>
+													<option value="bronze">Bronze</option>
+													<option value="regular">Regular</option>
 											</select> <span id="streetv"></span></td>
 										</tr>
 
@@ -436,8 +451,8 @@
 
 										<tr>
 											<td>Contract End Date *</td>
-											<td><input type="date" name="todate" id="todate" /> <span
-												id="streetv"></span></td>
+											<td><input type="date" name="todate" id="todate" /> 
+											<span id="streetv"></span></td>
 										</tr>
 
 
@@ -545,7 +560,7 @@
   {
    document.getElementById("framework").innerHTML="";
    document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-   
+  // location.href="NewOrder.jsp";
    
   }
    function change2()

@@ -73,12 +73,11 @@ public class ContractDetails {
 	}
 	@Override
 	public String toString() {
-		return "ContractDetails [contractid=" + contractid + ", modeltype="
-				+ modeltype + ", classofservice=" + classofservice
-				+ ", fromdate=" + fromdate + ", todate=" + todate
-				+ ", discountpercentage=" + discountpercentage + ", change="
-				+ change + "]";
+		return "ContractDetails [contractid=" + contractid + ", modeltype=" + modeltype + ", classofservice="
+				+ classofservice + ", fromdate=" + fromdate + ", todate=" + todate + ", discountpercentage="
+				+ discountpercentage + ", change=" + change + "]";
 	}
+	
 	
 	
 	

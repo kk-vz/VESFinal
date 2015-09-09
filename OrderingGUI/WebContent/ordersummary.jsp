@@ -84,7 +84,7 @@
                  'width': 7.5, // max width of content on PDF
                  'elementHandlers': specialElementHandlers
              });
-		var file = <%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getOrderid() %>;
+		var file = <%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getOrderid() %>;
 		var fileName =  file + ".pdf";
 		alert(fileName);
          doc.save(fileName);
@@ -135,9 +135,10 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                            	<% String image_source = "img/"+session.getAttribute("userName")+".jpg"; %>
+                                <img alt="" src=<%=image_source %>>
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username"><%= session.getAttribute("userName")%></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -216,24 +217,23 @@
 		
 		<tr>
 		<td>Company Name:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getFname() %></td>
+		<td><%= ((CustomerDetails)session.getAttribute("customerdetails")).getFname() %></td>
 		</tr>
-		
 		
 		<tr>
-		<td>Connection Address:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getConnectionaddress() %></td>
-		</tr>
+		<td>Company Id:</td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getCustomerid() %></td>
+		</tr>	
 		
-		
+
 		<tr>
 		<td>Billing Address:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getBillingaddress() %></td>
+		<td><%= ((Address)session.getAttribute("billingaddress")).toString()%></td>
 		</tr>
 		
 		<tr>
 		<td>E-Mail Id:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getEmail() %></td>
+		<td><%= ((CustomerDetails)session.getAttribute("customerdetails")).getEmail() %></td>
 		</tr>
 		
 		
@@ -243,8 +243,15 @@
 		</tr>
 		
 		<tr>
+		<td>Connection Address:</td>
+		<td><%=((Address)session.getAttribute("connectionaddress")).toString()%></td>
+		</tr>
+		
+		
+		
+		<tr>
 		<td>Order Id:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getOrderid() %></td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getOrderid()%></td>
 		</tr>
 		
 		<tr>
@@ -278,7 +285,7 @@
 		
 		<tr>
 		<td>Contract Id:</td>
-		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getContractid() %></td>
+		<td><%= ((EnterpriseOrder)session.getAttribute("enterpriseOrder")).getContractid()%></td>
 		</tr>
 		
 		<tr>
@@ -390,7 +397,7 @@
   {
   // document.getElementById("framework").innerHTML="";
   // document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-   location.href="NewOrder.jsp";
+   location.href="home.jsp";
    
   }
    function change2()

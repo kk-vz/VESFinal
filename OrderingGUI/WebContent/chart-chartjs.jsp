@@ -21,6 +21,7 @@
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="css/main-content.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
     <!--[if lt IE 9]>
@@ -29,14 +30,51 @@
       <script src="js/lte-ie7.js"></script>
     <![endif]-->
 	<script>
+	
+	function alert1(){	
+	dataString = document.getElementById("orderid").value ;
+	
+	$.ajax({
+				type : "POST",
+				url : "OrderStatusServlet",
+				data : dataString,
+				dataType : "json",
+
+				//if received a response from the server
+				success : function(data, textStatus, jqXHR) {
+						
+					$("#PL").html("");
+
+					
+					var orderstatus = JSON.stringify(data);
+					document.getElementById("search").value = orderstatus;
+					document.getElementById("details").style.visibility="visible";
+					document.getElementbyId("status").innerHTML = orderstatus;
+				},
+
+				//If there was no response from the server
+				error : function(jqXHR, textStatus, errorThrown) {
+					console.log("Something really bad happened " + textStatus);
+					$("#PL").html(jqXHR.responseText);
+				}
+
+			});
+
+	
+	
+	}
+	
+	
+	
+	
 	function visibility_div(){
-	document.getElementById("details").style.visibility="visible";
+				document.getElementById("details").style.visibility="visible";
 	}
 	function change1()
 	{
 	// document.getElementById("framework").innerHTML="";
 	// document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
-	 location.href="NewOrder.jsp";
+	 location.href="home.jsp";
 	 
 	}
 	 function change2()
@@ -173,38 +211,35 @@
 		<div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="icon_piechart"></i>ORDER STATUS</h3>
-					<% session.setAttribute("querying", "failed"); %>
+					<!-- <% //session.setAttribute("querying", "failed"); %> -->
 				</div>
 			</div>
-            <div>
+            <div id="shift_left">
 				<form action="OrderStatusServlet" method="post">
-					<pre>
-							Order ID : <input type="text" id="order"><input type="submit" id="orderid" >	
+					
+							Order ID : <input type="text" id="orderid" name="orderid">
+						
+							<input type="button" class="btn btn-success" value="Check" id="searchbutton" onclick="alert1();">	
 							
-							<!--  <input type="button" class="btn btn-success" id="searchbutton" value="Search" onclick="visibility_div()"> -->
-							<%
-							if(((String)session.getAttribute("querying")).equals("success"))
-							{
-								int orderstatus =Integer.parseInt((String)session.getAttribute("orderstatus"));
-								
-							%>
-								<input type="text" id="search" style="visibility:hidden" value=<%= orderstatus %> />
-								
-								<script> visibility_div(); </script>
-							<%
-							}
-			 				%>
-							
-							
-					</pre>
+					
 				</form>
+						
+
+								<input type="text" id="search" style="visibility:hidden" />
+								
+								
+						
+							
+				
+				
+				
 			
 			<div id="details" style="visibility:hidden" >
 					<div >
 					<section class="panel"><canvas id="doughnut" height="200" width="300"></canvas> 
 					<table>
 					<tr>
-					<td><b>Status : </b><div id="status"></div></td>	
+					<td><b>Status : </b><div id="status"><%= session.getAttribute("status") %></div></td>	
 					</tr>
 					</table>
 					<br>

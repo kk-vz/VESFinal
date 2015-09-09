@@ -28,10 +28,13 @@ public class CheckNewUserServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = "lol@gmail.com";//request.getParameter("email");
+		
+		System.out.println("In CheckNewUserServlet...");
+		String email = request.getParameter("email");  //"lol@gmail.com";
 		HttpSession session=request.getSession();
-		//System.out.println(email);
-		//String emailJson = "{\"email\":\""+email+"\"}";
+		
+		System.out.println("email: "+email);
+		
 		String profilePullURL = URL+email;
 		String outputJson = new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
@@ -41,24 +44,29 @@ public class CheckNewUserServlet extends HttpServlet {
 		
 		if(outputJson == null)
 		{
-			//session.setAttribute("customertype", "new");
+			session.setAttribute("customertype", "new");
+			
 			CustomerDetails customerdetails = new CustomerDetails();
 			System.out.println(customerdetails);
 			customerdetails.setCustomertype("new");
+			
 			session.setAttribute("customerdetails", customerdetails);
+			
 			response.sendRedirect("home.jsp");
 			
 		}
 		else
 		{
-			//session.setAttribute("customertype", "registered");
+			session.setAttribute("customertype", "registered");
+			
 			ProfilePull profile = new Gson().fromJson(outputJson, ProfilePull.class); 
 			System.out.println(profile);
 			CustomerDetails customerdetails = profile.getCustomerdetails();
 			customerdetails.setCustomertype("registered");
 			System.out.println(customerdetails);
-			System.out.println(customerdetails.getFname());
+						
 			session.setAttribute("customerdetails", customerdetails);
+			
 			response.sendRedirect("home.jsp");
 		}
 		

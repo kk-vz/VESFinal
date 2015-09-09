@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<%@page import="com.verizon.ves.ui.CustomerDetails"%>
 <html lang="en">
   <head>
- <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
-
+  <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+  
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,7 +140,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
                   <li>
-                      <a data-toggle="tab" class="" href="ValidateEmail.jsp" onclick="change1()">
+                      <a data-toggle="tab" class="" href="#neworder" onclick="change1()">
                           <i class="icon_house_alt"></i>
                           <span>New Order</span>
 						  <span class="menu-arrow arrow_carrot-right"></span>
@@ -147,7 +148,7 @@
                   </li>
 				    
                   <li class="sub-menu">
-                      <a data-toggle="tab" href="#cancelorder" onclick="change2()">
+                      <a data-toggle="tab"  onclick="change2()">
                           <i class="icon_desktop"></i>
                           <span>Edit Order</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
@@ -156,7 +157,7 @@
                   </li>
                  
                   <li>                     
-                      <a data-toggle="tab" href="#orderstatus" onclick="change3()">
+                      <a data-toggle="tab" onclick="change3()">
                           <i class="icon_piechart"></i>
                           <span>Order Status</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
@@ -168,112 +169,322 @@
           </div>
 		 
       </aside>
-	  
-		<div id="framework" >
-			
-				
-				<script>
-					
-					document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
-				</script>
-			
-				</div>
-						<!--footer id="myfooter" class="header dark-bg"></footer--> 
-						<!--NEW ORDER-->
-						<div id="neworder" class="onetime">
-							
-							<div id="left">	
-								<div id="new_form">
-							
-									
-									
-								 <form action="NewOrderServlet" class="register" method="post">		
-									<div id="anotherSection">
-										<fieldset>
-									
-											<div id="ajaxResponse" >
-												<script>
-													//document.getElementById("ajaxResponse").innerHTML='<object width="500" height="450" type="text/html" data="register.html" ></object>';
-													//$(document).ready(function(){
-														$("#ajaxResponse").load("registerform.jsp");
-													//});
-												</script>  
-											</div>
-										 
-											 <div id="provisioningResponse">
-												 <script> 
-												 
-												 </script>
-											 </div>
-											 
-											 <div id="quoting">
-												<script>
-													//document.getElementById("quoting").innerHTML='<object width="500" height="300" type="text/html" data="quoting.html" ></object>';
-												   $("#quoting").load("quoting.html");
-												</script>  
-												</div>
-												<div><button class="btn btn-success" type="submit" value="submit">Order &raquo;</button></div> 
-											 	
-										</fieldset>
-									</div>  
-								 </form>	
-					            </div>
-							</div>	
-				
-				
-					
-						</div>
-		 </form>
-						 <div id="editorder" class="onetime">
-							 <fieldset>
-							 
-								<h2>Edit Order(Only for the Right To Buy Customer)</h2>
-							 
-								<div id="editorder1" class="eo">
-									<form id="editRequest" action="EditOrderServlet" method="post">
-										Contract ID:&nbsp;&nbsp;&nbsp;<input type="text" name="orderID" id="orderID" />&nbsp;&nbsp;
-										<input type="button" id="editbutton" class="btn btn-success" name="editbutton" value="Search"/>
-										<div id="displaySection">
-										<fieldset>
-									   
-											 <div id="editResponse"></div>
-										</fieldset>
-										</div> 
-									</form>
-								</div>
-							 
-							 
-							 
-							 <div id ="complex" class="eo">
-							 
-							 
-								 <table>
-									 <tr>
-										 <td>
-											Increase No Of lines : &nbsp;</td><td><input type="text"  /></td>
-										 <td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success" type="submit" value="submit">Increase</button></td>
-									 </tr>
-								 </table>
-							 </div>
-			 
-			 
-							 </fieldset>
-						 </div>
-		 
-						 <div id="orderstatus"  class="onetime">
-						 
-							 <script>
-							document.getElementById("orderstatus").innerHTML='<object  type="text/html" data="chart-chartjs.html"  width="800" height="800"></object>';
-							</script> 
-						 
-						 
-						 </div>
-		 
+
+		<div id="framework">
+
+
 		
-		 
-		 
-	  
-  <!-- container section start -->
+
+		
+		<!--footer id="myfooter" class="header dark-bg"></footer-->
+		<!--NEW ORDER-->
+		
+
+			<div id="left">
+				<div id="new_form">
+					<form id="myAjaxRequestForm" action="CheckNewUserServlet"
+						method="post">
+						<fieldset>
+							<h2>Customer Information</h2>
+							<br>
+							<p>
+								<label for="cust_name">Customer's Email:</label> <input
+									id="email" type="text" name="email" />&nbsp;&nbsp;&nbsp; <input
+									class="btn btn-success" type="submit" value="Validate" />
+							</p>
+						</fieldset>
+					</form>
+					<div id="anotherSection">
+						<fieldset>
+
+							<div id="ajaxResponse">
+								<form action="" class="register" method="post">
+
+
+									<h3>Billing Details</h3>
+
+
+									<table>
+					<tr>
+							<td>
+								Company Name *
+							</td>
+							<td>	
+							<input type="text" id="fname" name="fname" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getFname() %>'/> 
+							
+							</td>	
+							<span id="namev"></span>
+					</tr>
+               
+					<tr>
+							<td>				
+								Street *`
+							</td>
+							<td>
+							<input type="text" class="long" name="bstreetname" id="bstreetname" onblur="validate(this);"  value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getStreetname() %> '/><span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								City *
+							</td>
+							<td>
+							<input type="text" class="long" name="bcity" id="bcity" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getCity() %>'/>
+							<span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								State *
+							</td>
+							<td>
+							
+								<select id="bstate" name="bstate" >
+										<option value="select"><%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getState() %></option>
+										<option value="ALASKA">ALASKA</option>
+										<option value="ARIZONA">ARIZONA</option>
+										<option value="CALIFORNIA">CALIFORNIA</option>
+										<option value="COLORADO">COLORADO</option>
+										<option value="FLORIDA">FLORIDA</option>
+										<option value="GEORGIA">GEORGIA</option>
+										<option value="HAWAII">HAWAII</option>
+										<option value="INDIANA">INDIANA</option>
+										<option value="KENTUCKY">KENTUCKY</option>
+										<option value="MICHIGAN">MICHIGAN</option>
+										<option value="MISSISSIPPI">MISSISSIPPI</option>
+										<option value="MISSOURI">MISSOURI</option>
+										<option value="NEW HAMPSHIRE">NEW HAMPSHIRE</option>
+										<option value="NEW JERSY">NEW JERSY</option>
+										<option value="NEW MEXICO">NEW MEXICO</option>
+										<option value="NEW YORK">NEW YORK</option>
+										<option value="OKLAHOMA">OKLAHOMA</option>
+										<option value="OREGON">OREGON</option>
+										<option value="PENNSYLVANIA">PENNSYLVANIA</option>
+										<option value="TENNESSE">TENNESSE</option>
+										<option value="TEXAS">TEXAS</option>
+										<option value="VERMONT">VERMONT</option>
+										<option value="VIRGINIA">VIRGINIA</option>
+										<option value="WASHINGTON">WASHINGTON</option>
+										<option value="WEST VIRGINIA">WEST VIRGINIA</option>
+								</select>
+							<span id="streetv"></span>	
+
+							</td>
+					</tr>
+				
+					<tr>
+							<td>
+								Country *
+							</td>
+							<td>
+								<input type="text" class="long" name="bcountry" id="bcountry" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getCountry()%>'/>
+								<span id="streetv"></span>
+							</td>
+					</tr>
+				
+					<tr>
+							<td>
+								Zipcode *
+							</td>
+							<td>
+								<input type="text" class="long" name="bzipcode" id="bzipcode" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getZipcode() %>'/><span id="streetv"></span>
+							</td>
+					</tr>
+                
+                
+                
+					<tr>
+							<td>
+								Email Address *
+							</td>
+							<td>
+								<input type="text" class="long" name="email" id="email" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getEmail() %>' /><span id="countryv"></span>
+							</td>
+					</tr>
+               
+					<tr>
+							<td>
+								Contact *
+							</td>
+							<td>
+								<input type="text" class="long" name="contactnumber" id="contactnumber" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getContactnumber() %>'/><span id="zipv"></span>
+							</td>
+                    
+                    </tr>
+                </table>									<br>
+
+									<!-- <label class="obinfo"> * Mandatory fields</label>-->
+								</form>
+
+							</div>
+
+
+
+
+						</fieldset>
+					</div>
+				</div>
+			</div>
+
+			<div id="right">
+				<div id="new_form">
+
+					<div id="anotherSection">
+						<fieldset>
+
+							<div id="ajaxResponse">
+								<form action="NextButtonServlet" class="register" method="post">
+
+									<h3>Provisioning Address</h3>
+									<table>
+										<tr>
+											<td>Street *</td>
+											<td><input type="text" class="long" name="cstreetname"
+												id="cstreetname" onblur="validate(this);" /><span id="streetv"></span>
+											</td>
+										</tr>
+
+										<tr>
+											<td>City *</td>
+											<td><input type="text" class="long" name="ccity"
+												id="ccity" onblur="validate(this);" /> <span id="streetv"></span></td>
+										</tr>
+
+										<tr>
+											<td>State *</td>
+											<td><select id="cstate" name="cstate">
+													<option value="select">----select your state----</option>
+													<option value="ALASKA">ALASKA</option>
+													<option value="ARIZONA">ARIZONA</option>
+													<option value="CALIFORNIA">CALIFORNIA</option>
+													<option value="COLORADO">COLORADO</option>
+													<option value="FLORIDA">FLORIDA</option>
+													<option value="GEORGIA">GEORGIA</option>
+													<option value="HAWAII">HAWAII</option>
+													<option value="INDIANA">INDIANA</option>
+													<option value="KENTUCKY">KENTUCKY</option>
+													<option value="MICHIGAN">MICHIGAN</option>
+													<option value="MISSISSIPPI">MISSISSIPPI</option>
+													<option value="MISSOURI">MISSOURI</option>
+													<option value="NEW HAMPSHIRE">NEW HAMPSHIRE</option>
+													<option value="NEW JERSY">NEW JERSY</option>
+													<option value="NEW MEXICO">NEW MEXICO</option>
+													<option value="NEW YORK">NEW YORK</option>
+													<option value="OKLAHOMA">OKLAHOMA</option>
+													<option value="OREGON">OREGON</option>
+													<option value="PENNSYLVANIA">PENNSYLVANIA</option>
+													<option value="TENNESSE">TENNESSE</option>
+													<option value="TEXAS">TEXAS</option>
+													<option value="VERMONT">VERMONT</option>
+													<option value="VIRGINIA">VIRGINIA</option>
+													<option value="WASHINGTON">WASHINGTON</option>
+													<option value="WEST VIRGINIA">WEST VIRGINIA</option>
+											</select></td>
+
+											<td>&nbsp;&nbsp;&nbsp; <!--<input type="button" class="btn btn-success" value="Search" name="sub" id="sub" />-->
+												<div id="response"></div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>Country *</td>
+											<td><input type="text" class="long" name="ccountry"	id="ccountry" onblur="validate(this);"	/>
+												<span id="streetv"></span></td>
+										</tr>
+
+										<tr>
+											<td>Zipcode *</td>
+											<td><input type="text" class="long" name="czipcode"
+												id="czipcode" onblur="validate(this);" /><span id="streetv"></span>
+											</td>
+										</tr>
+									</table>
+									<div>
+																		</div>
+
+
+
+
+									<br>
+
+							
+									<h3>Quoting</h3>
+									<table>
+										<tr>
+											<td>Contract Type *</td>
+											<td><select id="modeltype" name="modeltype">
+													<option value="select">--Select Contract Type--</option>
+													<option value="rtb">Right To Buy</option>
+													<option value="transactional">Transactional</option>
+											</select><span id="streetv"></span></td>
+										</tr>
+
+										<tr>
+											<td>Class Of Service *</td>
+											<td><select id="classofservice" name="classofservice">
+													<option value="select">--Select Class Of Service--</option>
+													<option value="platinum">Platinum</option>
+													<option value="gold">Gold</option>
+													<option value="silver">Silver</option>
+													<option value="bronze">Bronze</option>
+													<option value="regular">Regular</option>
+											</select> <span id="streetv"></span></td>
+										</tr>
+
+										<tr>
+											<td>Discount Percentage *</td>
+											<td><input type="text" name="discountpercentage"
+												id="discountpercentage" /> <span id="streetv"></span></td>
+										</tr>
+
+
+										<tr>
+											<td>Contract Start Date *</td>
+											<td><input type="date" name="fromdate" id="fromdate" />
+												<span id="streetv"></span></td>
+										</tr>
+
+
+										<tr>
+											<td>Contract End Date *</td>
+											<td><input type="date" name="todate" id="todate" /> 
+											<span id="streetv"></span></td>
+										</tr>
+
+
+
+
+
+
+									</table>
+									<div>
+									<br> <label class="obinfo"> * Mandatory fields</label> 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<button class="btn btn-success" type="submit" "><strong>Next
+											&raquo;</strong></button>
+
+									</div>
+								</form>
+
+
+							</div>
+						</fieldset>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+
+
+</div>	
+
+
+			<!-- container section start -->
   
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
@@ -343,12 +554,11 @@
 	document.getElementById("details").style.visibility="visible";
 	}
   
-  
   function change1()
   {
-//   document.getElementById("framework").innerHTML="";
-//   document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
- //  location.href="NewOrder.jsp";
+    document.getElementById("framework").innerHTML="";
+    document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+ 
    
   }
    function change2()

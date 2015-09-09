@@ -26,14 +26,14 @@ function Send(){
 	   
 	  alert(producttable.rows[selectedRow].cells[4].innerHTML);
 	  var cost =producttable.rows[selectedRow].cells[4].innerHTML;
-	
-	  alert(cost);
+	  var servicecode = producttable.rows[selectedRow].cells[1].innerHTML;
+	  alert(servicecode);
 	  var quantity = document.getElementById("quantity").value;
 	  //alert(document.getElementById("quantity").value);
 	 	  
 	  /*session.setAttribute("cost",cost);
 	  session.setAttribute("quantity", quantity);*/
-	  
+	  document.getElementById("servicecode").value=servicecode;
 	  document.getElementById("costperitem").value=cost;
 	 document.getElementById("qty").value=quantity;
 	  
@@ -44,6 +44,7 @@ function Send(){
 	}
 			function alert1(temp) {
 
+				
 				if (temp.id == "prod1") {
 					service = "internetdedicated";
 				} else if (temp.id == "prod2") {
@@ -448,6 +449,7 @@ function Send(){
 			
 	
 			<form id="hidden" name="hidden" action="NewOrderServlet" method="get">
+			<input type="text" id="servicecode" name="servicecode" style="visibility:hidden"/>
 			<input type="text" id="costperitem" name="costperitem" style="visibility:hidden"/>
 			 <input type="text" id="qty" name="qty" style="visibility:hidden"/>
 			 </form>
@@ -462,7 +464,7 @@ function change1()
 {
 // document.getElementById("framework").innerHTML="";
 // document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
- location.href="NewOrder.jsp";
+ location.href="home.jsp";
  
 }
  function change2()

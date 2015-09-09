@@ -17,8 +17,8 @@ public class CustomerDetails {
 		this.customerid = 0;
 		this.fname = "";
 		this.lname = null;
-		this.connectionaddress = new Address("", 0, "", "select", 0, "");
-		this.billingaddress = new Address("", 0, "", "select", 0, "");
+		this.connectionaddress = new Address("", 0, "", "----select your state----", 0, "");
+		this.billingaddress = new Address("", 0, "", "----select your state----", 0, "");
 		this.email = "";
 		this.contactnumber = 0;
 		this.dateofbirth = null;
